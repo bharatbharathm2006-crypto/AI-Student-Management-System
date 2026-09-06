@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Attendance Management</h1>
+
+<form action="/attendance" method="POST">
+
+<label>Student ID</label><br>
+<select name="student_id">
+
+{% for student in students %}
+
+<option value="{{ student[0] }}">
+{{ student[1] }} ({{ student[2] }})
+</option>
+
+{% endfor %}
+
+</select>
+<br><br>
+
+<label>Date</label><br>
+<input type="date" name="attendance_date" required><br><br>
+
+<label>Status</label><br>
+
+<select name="status">
+    <option value="Present">Present</option>
+    <option value="Absent">Absent</option>
+</select>
+
+<br><br>
+
+<button type="submit">
+Save Attendance
+</button>
+
+</form>
+<div class="text-center mt-4">
+    <a href="/admin_dashboard" class="btn btn-primary btn-lg">
+        Back to Dashboard
+    </a>
+</div>
+
+</body>
+</html>

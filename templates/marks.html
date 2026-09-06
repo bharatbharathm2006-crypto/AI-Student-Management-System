@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marks Entry</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Student Marks Entry</h1>
+
+<form action="/marks" method="POST">
+
+<label>Student</label><br>
+
+<select name="student_id">
+
+{% for student in students %}
+
+<option value="{{ student[0] }}">
+{{ student[1] }} ({{ student[2] }})
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+<label>IA1 Marks</label><br>
+<input type="number" name="ia1" min="0" max="100" required>
+
+<br><br>
+
+<label>IA2 Marks</label><br>
+<input type="number" name="ia2" min="0" max="100" required>
+
+<br><br>
+
+<label>IA3 Marks</label><br>
+<input type="number" name="ia3" min="0" max="100" required>
+
+<br><br>
+
+<button type="submit">
+Save Marks
+</button>
+
+</form>
+<div class="text-center mt-4">
+    <a href="/admin_dashboard" class="btn btn-primary btn-lg">
+        ← Back to Dashboard
+    </a>
+</div>
+
+</body>
+</html>

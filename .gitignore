@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+student.db
+Student_Report.pdf
+Student_Report.xlsx
+
+AI_Crop_Disease_Detection/
+
+*.pkl
